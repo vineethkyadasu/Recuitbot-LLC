@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import { 
   MapPinIcon, 
   PhoneIcon, 
@@ -22,14 +23,26 @@ const Contact: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormInputs>();
 
   const onSubmit = (data: ContactFormInputs) => {
-    const to = 'team@recuitbot.com';
-    const subject = encodeURIComponent(`[Website] ${data.subject}`);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || ''}\nCompany: ${data.company || ''}\n\nMessage:\n${data.message}`
-    );
-    const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoUrl;
-  };
+  emailjs.send(
+    'service_ni6yr8n',     // 🔹 Replace with your EmailJS Service ID
+    'template_8h620qb',    // ✅ Your template ID
+    {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      company: data.company,
+      subject: data.subject,
+      message: data.message,
+    },
+    'uaQ0mb31J8oN-H6pD'  // 🔹 Replace with your EmailJS Public Key
+  ).then(() => {
+    alert('Message sent successfully!');
+  }).catch((error) => {
+    console.error('Error:', error);
+    alert('Failed to send message. Please try again later.');
+  });
+};
+
 
   const contactInfo = [
     {
