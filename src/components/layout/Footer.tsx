@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center mb-5">
               <img
                 className="h-10 w-auto md:h-12"
-                src="/images/IMG_7671.png"
+                src="/images/IMG_7671.PNG"
                 alt="Recuitbot LLC"
               />
               <span className="ml-2 text-base md:text-lg font-bold tracking-tight text-primary-400">RECUITBOT LLC</span>
