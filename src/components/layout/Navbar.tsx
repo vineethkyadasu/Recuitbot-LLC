@@ -19,16 +19,21 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white/90 backdrop-blur shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 md:h-18">
+        <div className="flex justify-between h-20 md:h-24">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center" aria-label="Recuitbot LLC">
-              <img
-                className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 object-contain"
-                src="/images/IMG_7671.PNG"
-                alt="Recuitbot LLC"
-              />
-              <span>Recuitbot LLC</span>
-            </Link>
+            <Link
+  to="/"
+  className="flex-shrink-0 flex items-center"
+  aria-label="Recuitbot LLC"
+>
+  <img
+  className="h-14 w-auto sm:h-16 md:h-20 lg:h-24 object-contain drop-shadow-md hover:scale-105 transition-transform duration-200"
+  src="/images/IMG_7671.png"
+  alt="Recuitbot LLC"
+/>
+
+</Link>
+
           </div>
 
           {/* Desktop navigation */}

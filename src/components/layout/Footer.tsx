@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center mb-5">
               <img
                 className="h-10 w-auto md:h-12"
-                src="/images/IMG_7671.PNG"
+                src="/images/IMG_7671.png"
                 alt="Recuitbot LLC"
               />
               <span className="ml-2 text-base md:text-lg font-bold tracking-tight text-primary-400">RECUITBOT LLC</span>
@@ -107,20 +107,22 @@ const Footer: React.FC = () => {
         <div className="mt-4 pt-4 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Recuitbot LLC. All rights reserved.
-            </p>
+  © {currentYear} Recuitbot LLC. All rights reserved. | Designed & Developed by{" "}
+  <a
+    href="https://www.vikrin.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white transition-colors duration-200"
+  >
+    Vikrin
+  </a>
+</p>
+
             <div className="flex items-center space-x-4 text-gray-400 text-sm">
               <a href="/privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
               <a href="/terms" className="hover:text-white transition-colors duration-200">Terms of Service</a>
-              <a
-                href="https://www.vikrin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-200"
-                aria-label="Developed with love by Vikrin (opens in a new tab)"
-              >
-                Developed with <span aria-hidden="true">❤️</span> by Vikrin
-              </a>
+              
+
             </div>
           </div>
         </div>
