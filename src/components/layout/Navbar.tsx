@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
 >
   <img
   className="h-14 w-auto sm:h-16 md:h-20 lg:h-24 object-contain drop-shadow-md hover:scale-105 transition-transform duration-200"
-  src="/images/IMG_7671.png"
+  src="/images/IMG_7671.PNG"
   alt="Recuitbot LLC"
 />
 
