@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { 
   MapPinIcon, 
   PhoneIcon, 
@@ -22,26 +21,36 @@ const Contact: React.FC = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormInputs>();
 
-  const onSubmit = (data: ContactFormInputs) => {
-  emailjs.send(
-    'service_ni6yr8n',     // 🔹 Replace with your EmailJS Service ID
-    'template_8h620qb',    // ✅ Your template ID
-    {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      company: data.company,
-      subject: data.subject,
-      message: data.message,
-    },
-    'uaQ0mb31J8oN-H6pD'  // 🔹 Replace with your EmailJS Public Key
-  ).then(() => {
-    alert('Message sent successfully!');
-  }).catch((error) => {
-    console.error('Error:', error);
-    alert('Failed to send message. Please try again later.');
-  });
+  const onSubmit = async (data: ContactFormInputs) => {
+  try {
+    const response = await fetch("https://recuitbot.com/api/contact.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.company,
+        subject: data.subject,
+        message: data.message,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert("Message sent successfully!");
+    } else {
+      alert(result.error || "Failed to send message");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Something went wrong. Please try again later.");
+  }
 };
+
 
 
   const contactInfo = [
