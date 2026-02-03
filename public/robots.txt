@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow build artifacts and private paths
+Disallow: /dist/
+
+Sitemap: https://recuitbot.com/sitemap.xml
+  
