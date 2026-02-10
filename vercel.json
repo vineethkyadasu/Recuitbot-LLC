@@ -1,7 +1,18 @@
-{
+
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/:path((?!.*\\.).*)",
+      "destination": "https://www.recuitbot.com/:path",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "recuitbot.com"
+        }
+      ]
+    }
   ]
 }
-
-
